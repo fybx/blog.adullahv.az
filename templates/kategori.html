@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog.AdullahV.az</title>
+</head>
+<body>
+    {% extends 'bos.html' %}
+    {% block body %}
+    <div class="suan" title="Seçdiyiniz Kateqoriyadakı Bütün Postlar">
+        <h1 class="suan2">Seçdiyiniz Kateqoriyadakı Bütün Postlar</h1> 
+    </div>
+    <div id="sayi">
+        <h1>Secdiyiniz kateqoriyadaki postlarin sayi:{{katsayi}}</h1>
+    </div>
+    <div class="genel">
+    {% for birkategorilipost in kategorilipost %}
+    
+    <div class="genel2" title="{{birkategorilipost.baslik}}">
+        <div class="id" title="postun ID-si = {{birkategorilipost.id}}">
+            <p>id = {{birkategorilipost.id}}</p>
+        </div>
+    
+        <div class="baslik">
+            <b><a href="postlar/detallar/{{birkategorilipost.id}}">{{birkategorilipost.baslik}}</a></b>
+        </div>
+    
+        <div class="kateqoriya">
+            <span class="katspan" title="#{{birkategorilipost.kategori}} kateqoriyasi"><a href="/kategoriya/{{birkategorilipost.kategori}}">#{{birkategorilipost.kategori}} kateqoriyasi</a></span>
+        </div>
+        <p>{{birkategorilipost.aciklama}}</p>
+        <div class="aciklama">
+            <a href="/detallar/{{birkategorilipost.id}}" title="Ətrafli Oxu" class="etrafli2">Ətraflı Oxu--></a>
+        </div>
+    
+        <!--<a href="duzenle/{{birpost.id}}" class="duzenle" title="Duzenle">Duzenle</a>
+    
+        <a href="sil/{{birpost.id}}" class="sil" title="Sil">Sil</a>-->
+    
+        <div class="tarih">
+            <p class="tarih2" title="Postun atilma tarixi:{{birkategorilipost.tarih}}">{{birkategorilipost.tarih}}</p>
+        </div>
+    </div>
+        
+    
+
+    {% endfor %}
+</div>
+<div> <i class="fas fa-folder-open" id="home"></i></div>
+<button class="yukarigit"><a href="#top"><i class="fas fa-arrow-up"></i></a></button>
+<button class="asagigit"><a href="#footer"><i class="fas fa-arrow-down"></i></a></button>
+
+
+    {% endblock %}
+</body>
+</html>

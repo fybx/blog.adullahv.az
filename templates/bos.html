@@ -1,0 +1,916 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog.AdullahV.az</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style type="text/css">
+    /*.menuul .menuli .menua i{
+        margin-right: 4px;
+        transition: all .8s ease-in-out;
+        opacity: 0;
+        transform: translate(20px);
+    }
+    .menuul .menuli .menua:hover i{
+        transform: translate(20px);
+        transform: rotate(360deg);
+        opacity: 1;
+    }
+    .menu{
+        background-color: rgba(65, 105, 255, .8);
+        position: fixed;
+        top: 0px;
+        height: 11%;
+        width: 100%;
+        box-shadow: 0px 6px 19px black;
+        z-index: 999;
+    }
+    .menuul{
+        position: absolute;
+        top: 4px;
+        left: 150px
+    }
+    .menuul .menuli{
+        list-style: none;
+        float: left;
+    }
+    .menuul .menuli .menua{
+        text-decoration: none;
+        padding: 10px 15px;
+        font-size: 22px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        background-color: black;
+        color: royalblue;
+        border-radius: 10px;
+        transition: background-color .65s ease-in-out;
+        box-shadow: -3px 3px 15px black;
+        cursor: pointer;
+        padding-right: 38px;
+    }
+        .menuul .menuli .menua:hover{
+        text-decoration: underline solid royalblue;
+        border:4px solid royalblue;
+        background-color: white;
+        box-shadow: 4px 4px 10px rgb(0, 0, 255),
+                    -4px -4px 10px rgb(0, 0, 255);
+        text-shadow: 3px 4px 10px rgb(0, 0, 255);
+    }
+    @keyframes animasyon{
+        from{background-color: rgb(0, 0, 0);};
+        to{background-color: rgb(255, 255, 255);}
+    }*/
+
+
+
+
+    /* bu blogu etmekdeki esas meqsedim backend biliklerimi guclendirmek idi.buna gore blogun frontendine o qederde fikir vermemisem.(elimden cox daha yaxsisi geler)eger asagidaki kodlari inceleseniz bezi yerlerde 20 setirlik kodlari bosuna 60 70 setire qeder uzatdigimi goreceksiniz.bunun sebebi geceler islemekdi.ve erincek oldugum ucun bunlari duzeltmedim.*geceler kod yazmayin.uasfduYGSADAGSİYDLFGYÜAOİUEFHJDASHoisdgfhdgshfsgdjfhgdcmdsdjhfjksdfjkshdfjhsdjkfhjpldsafhasjbhjvcdbuygfjhdjsdhfs */
+    
+    
+    
+    ::selection{
+        color: rgb(0, 60, 255);
+        background: rgba(65, 105, 225, 0.472);
+    }
+    #inputalani{
+        position: absolute;
+        top: 7px;
+        right: 90px;
+        border-radius: 10px;
+        width: 220px;
+        height: 40px;
+        outline: none;
+        background-color: rgb(226, 224, 238);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: royalblue;
+        font-weight: bolder;
+    }
+    #inputalani:focus{
+        background-color: rgb(255, 255, 255);
+    }
+    #axtar{
+        position: absolute;
+        top: 8px;
+        right: 38px;
+        height: 43px;
+        width: 55px;
+        border-radius: 10px;
+        outline: none;
+        color: royalblue;
+        letter-spacing: 3px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-weight: bolder;
+    }
+    .menu ul li a i{
+        margin-right: 4px;
+        transition: all .8s ease-in-out;
+        opacity: 0;
+        transform: translate(20px);
+    }
+    .menu ul li a:hover i{
+        transform: translate(20px);
+        transform: rotate(360deg);
+        opacity: 1;
+    }
+    .menu{
+        background: rgba(21, 51, 133, 0.8);
+        width: 100%;
+        height: 60px;
+        position: fixed;
+        top: 0px;
+        }
+
+    .menu ul li{
+        list-style: none;
+        display: inline-block;
+    }
+    .menu ul li a{
+        text-decoration: none;
+        padding: 15px;
+        padding-right: 34px;
+        margin: 0px 5px;
+        color: white;
+        transition: all .5s ease-in-out;
+        border-bottom: 4px solid white;
+    }
+    
+    .menu ul li a:hover{
+        background: rgba(9, 26, 73, 0.8);
+    }
+    #home{
+        font-size: 33px;
+        color: white;
+        position: fixed;
+        left: 8px;
+        top: 10px;
+        opacity: 1;
+    }
+    #tglbtn{
+        position: absolute;
+        top: 0px;
+        display: none;
+        height: 30px;
+        width: 90px;
+        display: none;
+    }
+    .menu2{
+        z-index: 99;
+        background: rgba(21, 51, 133, 0.8);
+        position: absolute;
+        top: 20px;
+        }
+    .menu2 ul{
+        position: absolute;
+        left: -40px;
+        top: 37px;
+        display: none;
+        background: rgba(21, 51, 133, 0.8);
+    }
+    .menu2 ul li{
+        list-style: none;
+    }
+    .menu2 ul li a{
+        color: white;
+        padding: 15px;
+        margin: 10px 0px;
+        text-decoration: none;
+        display: block;
+        width:340px;
+        border-left:4px solid white;
+        transition:all .5s ease-in-out;
+    }
+    
+    .menu2 ul li a:hover{
+        background: rgba(21, 51, 133, 0.8);
+    }
+
+    @media only screen and (max-width: 780px) {
+        .menu{
+            display: none;
+        }
+        #home{
+            opacity: 0;
+        }
+        .menu2 ul{
+            display: block;
+            top: 0px;
+        }
+        #tglbtn{
+            display: block;
+        }
+        
+        
+      }
+
+    
+    /*--------------Postlar.html-in css-i----------------*/
+    /*--------------Postlar.html-in css-i----------------*/
+    /*--------------Postlar.html-in css-i----------------*/
+    /*--------------Postlar.html-in css-i----------------*/
+
+    body{
+        padding: 0px;
+        margin: 0px;
+        font-family: monospace;
+        margin-top: 100px;
+    }
+    #malesef{
+        text-align: center;
+    }
+    #sayi{
+        width: 100%;
+        height: 90px;
+        text-align: center;
+        color: black;
+        background-color: white;
+    }
+    .yukarigit{
+        height: 30px;
+        width: 30px;
+        border-radius: 15px;
+        background-color: rgb(0, 60, 255);
+        position: fixed;
+        right: 40px;
+        bottom: 40px;
+        outline: none;
+        font-size: 15px;
+    }
+    .yukarigit a{
+        text-decoration: none;
+        color: white;
+    }
+    .asagigit{
+        height: 30px;
+        width: 30px;
+        border-radius: 15px;
+        background-color: rgb(0, 60, 255);
+        position: fixed;
+        left: 40px;
+        bottom: 40px;
+        outline: none;
+        font-size: 15px;
+    }
+    .asagigit a{
+        text-decoration: none;
+        color: white;
+    }
+
+    .genel .genel2:nth-child(odd){
+        background:linear-gradient(rgb(165, 154, 154),royalblue);
+    }
+    .suan2{
+        color: rgb(52, 54, 71);
+        text-align: center;
+        position: relative;
+        top: 50px;
+    }
+    .tarih2{
+        color: rgb(0, 0, 0);
+        cursor: default;
+        opacity: .7;
+    }
+    .baslik a{
+        text-decoration: none;
+        color: black;
+        font-size: 25px;
+    }
+    .id{
+        color: red;
+    }
+    .genel .genel2{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .suan{
+        height: 200px;
+        width: 100%;
+        margin-top: 200px;
+    }
+    
+    .aciklama a{
+        padding-left: 15px;
+        text-decoration: underline;
+        color: red;
+    }
+    .footer{
+        height: 100px;
+        width: 100%;
+        text-align: center;
+        font-size: 18px;
+        background:linear-gradient(black,rgb(40, 39, 47)) ;
+        color:white;
+        margin-top: 20px;
+    }
+    .footerspan{
+        position: relative;
+        top: 32px;
+    }
+    .kateqoriya{
+        font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        
+    }
+    .katspan a{
+        text-decoration: none;
+        color: rgb(7, 3, 214);
+    }
+    .katspan a:active{
+        background-color: rgb(25, 48, 149);
+        color: white;
+    }
+    .etrafli2{
+        border: 1px solid red;
+        padding: 5px;
+        transition: all .6s ease-in-out;
+        text-decoration: none;
+    }
+    .etrafli2:hover{
+        background-color: black;
+        text-decoration: underline;
+    }
+    .sil{
+        padding: 5px;
+        color: rgb(255, 102, 0);
+        border: 1px solid rgb(255, 102, 0);
+        margin: 3px 0px;
+    }
+    .duzenle{
+        padding: 5px;
+        color: rgb(72, 255, 0);
+        border: 1px solid rgb(72, 255, 0);
+    }
+    .aciklama{
+        margin-bottom: 10px;
+    }
+    .messages{
+        background-color: rgb(96, 197, 96);
+        width: 100%;
+        text-align: center;
+        list-style: none;
+        font-size: 30px;
+        margin: 30px 0px;
+        font-family: 'Courier New', Courier, monospace;
+        padding: 20px;
+        opacity: .6;
+    }
+
+    /*---------Forms.html-in css-i----------*/
+    /*---------Forms.html-in css-i----------*/
+    /*---------Forms.html-in css-i----------*/
+    /*---------Forms.html-in css-i----------*/
+
+    #formyazisi{
+        font-family: monospace;
+    }
+
+    /*--------------detallar.html-in css-i-------------*/
+    /*--------------detallar.html-in css-i-------------*/
+    /*--------------detallar.html-in css-i-------------*/
+    /*--------------detallar.html-in css-i-------------*/
+    #suandetal{
+        color: rgb(20, 21, 27);
+        text-align: center;
+        margin-top: 200px;
+    }
+    .resim{
+        width: 100%;
+        height: 700px;
+        margin: 30px 0px;
+    }
+    #bold{
+        color: rgb(93, 75, 75);
+        position: absolute;
+        right: 10%;
+        font-size: 18px;
+    }
+    #baslikdiv{
+        height: auto;
+        width: auto;
+        margin-left: auto;
+        font-size: 40px;
+        text-align: center;
+        background-color: rgb(180, 180, 180);
+    }
+    .messages{
+        background-color: rgb(96, 197, 96);
+        width: 100%;
+        text-align: center;
+        list-style: none;
+        font-size: 30px;
+        margin: 30px 0px;
+        font-family: 'Courier New', Courier, monospace;
+        padding: 20px;
+        opacity: .6;
+    }
+    /*#metindiv{
+        height: 100%;
+        width: 65%;
+        background-color: rgb(255, 255, 255);
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin-left: 15%;
+        font-size: 18px;
+    }*/
+    #metindiv{
+        font-size: 19px;
+    }
+    #kategori{
+        font-weight: bolder;
+        font-size: 15px;
+    }
+    /*----------------hakkimda.html-in css-i*---------------*/
+    /*----------------hakkimda.html-in css-i*---------------*/
+    /*----------------hakkimda.html-in css-i*---------------*/
+    /*----------------hakkimda.html-in css-i*---------------*/
+    #hakkimdadiv{
+        width: 100%;
+        height: 100px;
+        background: linear-gradient(rgb(76, 107, 173),rgb(5, 36, 175));
+        position: relative;
+        top: 190px;
+        z-index: -1;
+    }
+
+    #hakkimdayazisi{
+        color: black;
+        text-align: center;
+        font-size: 30px;
+        position: relative;
+        top: 30px;
+    }
+    #hakkimdadiv2{
+        height: 100%;
+        width: 65%;
+        background-color: white;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin-left: 15%;
+        font-size: 28px;
+        margin-top: 200px;
+    }
+    #burahakkimda{
+        width: 100%;
+        height: 200px;
+        background-color: white;
+        position: relative;
+        top: 190px;
+        z-index: -1;
+    }
+    #burahakkimda h1{
+        text-align: center;
+        margin-top: 70px;
+        color: rgb(52, 54, 71);
+    }
+    #biliklerimdiv{
+        width: 100%;
+        height: 100px;
+        background: linear-gradient(rgb(76, 107, 173),rgb(5, 36, 175));
+        color: white;
+        position: absolute;
+        z-index: -99;
+    }
+    #biliklerimyazisi{
+        color: black;
+        text-align: center;
+        font-size: 30px;
+        position: relative;
+        top: 10px;
+    }
+    #maraqlananucunbloghakkinda{
+        width: 100%;
+        height: 100px;
+        background: linear-gradient(rgb(76, 107, 173),rgb(5, 36, 175));
+        color: white;
+        position: absolute;
+        z-index: -99;
+    }
+    #maraqlananucunbloghakkinda h1{
+        color: black;
+        text-align: center;
+        font-size: 30px;
+        position: relative;
+        top: 10px;
+    }
+
+    #bloghakkinda{
+        height: 100%;
+        width: 65%;
+        background-color: white;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin-left: 15%;
+        font-size: 28px;
+        margin-top: 100px;
+    }
+
+    #html{
+        position: absolute;
+        left: 0px;
+        top: 40px;
+        width: 300px;
+        height: 10px;
+        border-radius: 4px;
+        border: 2px solid orangered;
+    }
+    #css{
+        position: absolute;
+        left: 0px;
+        top: 90px;
+        width: 300px;
+        height: 10px;
+        border-radius: 4px;
+        border: 2px solid blue;
+    }
+    #javascript{
+        position: absolute;
+        left: 0px;
+        top: 140px;
+        width: 300px;
+        height: 10px;
+        border-radius: 4px;
+        border: 2px solid yellow;
+    }
+    #python{
+        position: absolute;
+        left: 0px;
+        top: 210px;
+        width: 300px;
+        height: 10px;
+        border-radius: 4px;
+        border-top: 2px solid rgb(15, 39, 104);
+        border-bottom: 2px solid rgb(221, 130, 11); 
+        border-left:1px solid rgb(221, 130, 11);
+        border-right:1px solid rgb(15, 39, 104);    
+    }
+    #django{
+        position: absolute;
+        left: 0px;
+        top: 260px;
+        width: 300px;
+        height: 10px;
+        border-radius: 4px;
+        border: 2px solid rgb(23, 46, 23);
+    }
+
+    #htmlic{
+        position: absolute;
+        left: -2px;
+        top: 0px;
+        width: 200px;
+        height: 10px;
+        border-radius: 4px;
+        background-color: orangered;
+        animation: animasyonhtml 4s ease-in-out;
+    }
+    @keyframes animasyonhtml{
+        from{
+            width: 0px;
+            background-color: rgb(209, 166, 150);
+        }
+        to{
+            width:200px;
+            background-color: orangered;
+        }
+    }
+    #cssic{
+        position: absolute;
+        left: -2px;
+        top: 0px;
+        width: 150px;
+        height: 10px;
+        border-radius: 4px;
+        background-color: blue;
+        animation: animasyoncss 4s ease-in-out;
+    }
+    @keyframes animasyoncss{
+        from{
+            width: 0px;
+            background-color: rgb(129, 129, 170);
+        }
+        to{
+            width:150px;
+            background-color: blue;
+        }
+    }
+    #javascriptic{
+        position: absolute;
+        left: -2px;
+        top: 0px;
+        width: 105px;
+        height: 10px;
+        border-radius: 4px;
+        background-color: yellow;
+        animation: animasyonjavascript 4s ease-in-out;
+    }
+    @keyframes animasyonjavascript{
+        from{
+            width: 0px;
+            background-color: rgb(202, 202, 151);
+        }
+        to{
+            width:105px;
+            background-color: yellow;
+        }
+    }
+    #pythonic{
+        position: absolute;
+        left: -2px;
+        top: 0px;
+        width: 200px;
+        height: 10px;
+        border-radius: 4px;
+        background: -webkit-linear-gradient(rgb(15, 39, 104), rgb(221, 130, 11));
+        animation: animasyonpython 4s ease-in-out;
+    }
+    @keyframes animasyonpython{
+        from{
+            width: 0px;
+            background: -webkit-linear-gradient(rgb(72, 88, 131), rgb(148, 121, 86));
+
+        }
+        to{
+        width:200px;
+        background: -webkit-linear-gradient(rgb(15, 39, 104), rgb(221, 130, 11));
+        }
+    }
+    #djangoic{
+        position: absolute;
+        left: -2px;
+        top: 0px;
+        width: 70px;
+        height: 10px;
+        border-radius: 4px;
+        background-color: rgb(23, 46, 23);
+        animation: animasyondjango 4s ease-in-out;
+    }
+    @keyframes animasyondjango{
+        from{
+            width: 0px;
+            background-color: rgb(80, 92, 80);
+        }
+        to{
+            width:70px;
+            background-color: rgb(23, 46, 23);
+        }
+    }
+
+    #jqueryic{
+        position: absolute;
+        left: -2px;
+        top: 0px;
+        width: 36px;
+        height: 10px;
+        border-radius: 4px;
+        background-color: rgb(24, 35, 195);
+        animation: animasyonjquery 4s ease-in-out;
+    }
+    @keyframes animasyonjquery{
+        from{
+            width: 0px;
+            background-color: rgb(101, 106, 173);
+        }
+        to{
+            width:36px;
+            background-color: rgb(24, 35, 195);
+        }
+    }
+    #jquery{
+        position: absolute;
+        left: 0px;
+        top: 319px;
+        width: 300px;
+        height: 10px;
+        border-radius: 4px;
+        border: 2px solid rgb(22, 33, 192);
+    }
+
+    #tkinter{
+        position: absolute;
+        left: 0px;
+        top: 379px;
+        width: 300px;
+        height: 10px;
+        border-radius: 4px;
+        border: 2px solid rgb(36, 192, 22);
+    }
+    #tkinteric{
+        position: absolute;
+        left: -2px;
+        top: 0px;
+        width: 96px;
+        height: 10px;
+        border-radius: 4px;
+        background-color: rgb(36, 192, 22);
+        animation: animasyontkinter 4s ease-in-out;
+    }
+
+    @keyframes animasyontkinter{
+        from{
+            width: 0px;
+            background-color: rgb(102, 190, 109);
+        }
+        to{
+            width:96px;
+            background-color: rgb(36, 192, 22);
+        }
+    }
+    #selenium{
+        position: absolute;
+        left: 0px;
+        top: 429px;
+        width: 300px;
+        height: 10px;
+        border-radius: 4px;
+        border: 2px solid rgb(48, 53, 48);
+    }
+    #seleniumic{
+        position: absolute;
+        left: -2px;
+        top: 0px;
+        width: 86px;
+        height: 10px;
+        border-radius: 4px;
+        background-color: rgb(48, 53, 48);
+        animation: animasyonselenium 4s ease-in-out;
+    }
+    @keyframes animasyonselenium{
+        from{
+            width: 0px;
+            background-color: rgb(75, 77, 76);
+        }
+        to{
+            width:86px;
+            background-color: rgb(48, 53, 48);
+        }
+    }
+    #coolbiliklerim{
+        position: relative;
+        top: 80px;
+        height: 100%;
+        width: 100%;
+    }
+    #htmlyazisi{
+        margin-top: 40px;
+    }
+    #cssyazisi{
+        margin-top: 50px;
+    }
+    #javascriptyazisi{
+        margin-top: 40px;
+
+    }
+    #pythonyazisi{
+        display: block;
+        margin-top: 50px;
+    }
+    #djangoyazisi{
+        margin-top: 40px;
+    }
+    #jqueryyazisi{
+        margin-top: 38px;
+    }
+    #tkinteryazisi{
+        margin-top: 39px;
+    }
+    #seleniumyazisi{
+        margin-top: 39px;
+    }
+    #tamamla{
+        width: 100%;
+        height: 30px;
+        margin-top: 100px;
+    }
+
+    /*----------------iletisim.html-in css-i*---------------*/
+    /*----------------iletisim.html-in css-i*---------------*/
+    /*----------------iletisim.html-in css-i*---------------*/
+    /*----------------iletisim.html-in css-i*---------------*/
+
+    #iletisimdiv{
+        width: 100%;
+        height: 100px;
+        background: linear-gradient(rgb(76, 107, 173),rgb(5, 36, 175));
+        position: relative;
+        top: 190px;
+    }
+
+    #iletisimbilgileriyazisi{
+        color: black;
+        text-align: center;
+        font-size: 30px;
+        position: relative;
+        top: 30px;
+    }
+    #iletisimdiv2{
+        height: 100%;
+        width: 65%;
+        background-color: white;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin-left: 15%;
+        font-size: 28px;
+        margin-top: 200px;
+    }
+    
+    #burailetisim{
+        width: 100%;
+        height: 200px;
+        background-color: white;
+        position: relative;
+        top: 190px;
+        z-index: -1;
+    }
+    #burailetisim h1{
+        text-align: center;
+        margin-top: 70px;
+        color: rgb(52, 54, 71);
+    }
+
+
+
+
+    </style>
+</head>
+<body>
+<!--<div class="menu">
+    <ul class="menuul">
+        <li class="menuli"><a href="/admin" class="menua"><i class="fas fa-user-cog"></i>Admin Paneli</a></li>
+        <li class="menuli"><a href="/post/postlar" class="menua"><i class="fas fa-mail-bulk"></i>Postlar Sayfasi</a></li>
+        <li class="menuli"><a href="/post/forms" class="menua"><i class="fas fa-plus"></i>Portfolyo</a></li>
+        <li class="menuli"><a href="/post/hakkimda" class="menua"><i class="fas fa-user-alt"></i>Hakkimda</a></li>
+        <li class="menuli"><a href="/post/iletisim" class="menua"><i class="fas fa-wifi"></i>Iletisim</a></li>
+    </ul>
+</div>-->
+
+<div class="menu">
+    <ul>
+        <li><a href="/" onclick="degisana()"><i class="fas fa-mail-bulk"></i>Postlar</a></li>
+        <li><a href="/hakkimda"  onclick="degishak()"><i class="fas fa-user"></i>Haqqımda</a></li>
+        <li><a href="/iletisim"  onclick="degisilet()"><i class="fas fa-wifi"></i>Əlaqə</a></li>
+    </ul> 
+    <form role="search" method="GET" action="" value="{{ request.GET.sorgu }}">
+    <input type="text" placeholder="Blogda Axtar..." name="sorgu" id="inputalani">
+    <button type="submit" id="axtar" title="Blogda Axtar"><i class="fas fa-search"></i></button>
+    </form>
+    
+</div>
+<!-- <button id="tglbtn">toggle</button> -->
+<div class="menu2">
+    <ul>
+        <li><a href="/" onclick="degisana()">Postlar</a></li>
+        <li><a href="/hakkimda" onclick="degishak()">Haqqımda</a></li>       
+        <li><a href="/iletisim" onclick="degisilet()">Əlaqə</a></li>
+    </ul>
+</div>
+
+
+{% block body %}
+
+
+{% endblock %}
+
+<div class="footer" title="Müəllif Hüquqları qorunur" id="footer"><span class="footerspan">Müəllif Hüquqları qorunur c 2020</span></div>
+
+
+<!-- <script>
+$(document).ready(function(){
+    $("#tglbtn").click(function(){
+        $(".menu2").toggle(300)
+    })
+})
+
+</script> -->
+
+
+<!--<script>
+    function degisana(){
+        var home = document.querySelector("#home")
+        home.classList.remove("fa-user-alt")
+        home.classList.remove("fa-wifi")
+        home.classList.add("fa-mail-bulk")
+    }
+    function degishak(){
+        var home = document.querySelector("#home")
+        home.classList.remove("fa-mail-bulk")
+        home.classList.remove("fa-wifi")
+        home.classList.add("fa-user-alt")
+    }
+    function degisilet(){
+        var home = document.querySelector("#home")
+        home.classList.remove("fa-user-alt")
+        home.classList.remove("fa-mail-bulk")
+        home.classList.add("fa-wifi")
+    }
+
+
+</script>-->
+</body>
+</html>
+
+

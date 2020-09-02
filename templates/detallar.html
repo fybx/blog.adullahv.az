@@ -1,0 +1,63 @@
+{% extends 'bos.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>document</title>
+    <style type="text/css">
+    #suandetal{
+        text-align: center;
+    }
+    #bold{
+        color: rgb(93, 75, 75);
+    }
+    #baslik{
+        font-size: 30px;
+        text-align: center;
+        color: black;
+    }
+    .messages{
+        background-color: rgb(96, 197, 96);
+        width: 100%;
+        text-align: center;
+        list-style: none;
+        font-size: 30px;
+        margin: 30px 0px;
+        font-family: 'Courier New', Courier, monospace;
+        padding: 20px;
+        opacity: .6;
+    }
+
+    
+    </style>
+</head>
+<body>
+{% block body %}
+
+
+    <h1 id="suandetal">Detallar Sehifesi</h1>
+    {% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %} class="msgyz">{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+    <b>id = {{tumpostlar2.id}}</b><br><br>
+    <b id="kategori">#{{tumpostlar2.kategori}} kategoriyasi</b><br><br>
+    <div id="baslikdiv">{{tumpostlar2}}</div>
+    {% if tumpostlar2.resim %}
+    <img src="{{tumpostlar2.resim.url}}" alt="asdasd" class="resim">
+    {% endif %}
+    <div id="metindiv"><p id="metin">{{tumpostlar2.metin|safe|linebreaks}}</p></div>
+
+    
+    <b id="bold"> {{tumpostlar2.tarih}}</b><br>
+    <div> <i class="fas fa-file-alt" id="home"></i></div>
+    <button class="yukarigit"><a href="#top"><i class="fas fa-arrow-up"></i></a></button>
+    <button class="asagigit"><a href="#footer"><i class="fas fa-arrow-down"></i></a></button>
+    
+{% endblock %}
+</body>
+</html>

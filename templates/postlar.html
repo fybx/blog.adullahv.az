@@ -1,0 +1,187 @@
+{% extends 'bos.html'%}
+{% load static %}
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Postlar</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <style type="text/css">
+
+    body{
+        padding: 0px;
+        margin: 0px;
+        font-family: monospace;
+    }
+
+    .genel .genel2:nth-child(odd){
+        background:linear-gradient(rgb(144, 126, 126),rgb(58, 50, 50));
+    }
+    h1{
+        color: rgb(52, 54, 71);
+        text-align: center;
+        position: relative;
+        top: 70px;
+    }
+    #tarih{
+        color: rgb(0, 0, 0);
+        cursor: default;
+        opacity: .7;
+    }
+    .baslik a{
+        text-decoration: none;
+        color: black;
+        font-size: 25px;
+    }
+    .id{
+        color: red;
+    }
+    .genel .genel2{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .suan{
+        height: 200px;
+        width: 100%;
+    }
+    .aciklama a{
+        padding-left: 15px;
+        text-decoration: underline;
+        color: red;
+    }
+    .footer{
+        height: 100px;
+        width: 100%;
+        text-align: center;
+        font-size: 18px;
+        background:linear-gradient(rgb(113, 140, 223),rgb(0, 64, 255)) ;
+        color:white;
+    }
+    .footerspan{
+        position: relative;
+        top: 32px;
+    }
+    .kateqoriya{
+        font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+    #etrafli{
+        border: 1px solid red;
+        padding: 5px;
+        transition: all .6s ease-in-out;
+        text-decoration: none;
+    }
+    #etrafli:hover{
+        background-color: black;
+        text-decoration: underline;
+    }
+    .sil{
+        padding: 5px;
+        color: rgb(255, 102, 0);
+        border: 1px solid rgb(255, 102, 0);
+        margin: 3px 0px;
+    }
+    .duzenle{
+        padding: 5px;
+        color: rgb(72, 255, 0);
+        border: 1px solid rgb(72, 255, 0);
+    }
+    .aciklama{
+        margin-bottom: 10px;
+    }
+    .messages{
+        background-color: rgb(96, 197, 96);
+        width: 100%;
+        text-align: center;
+        list-style: none;
+        font-size: 30px;
+        margin: 30px 0px;
+        font-family: 'Courier New', Courier, monospace;
+        padding: 20px;
+        opacity: .6;
+    }
+   
+    
+    
+    </style>
+</head>
+<body>
+
+
+{% block body %}
+
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %} class="msgyz">{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    
+<div class="suan" title="Bura postlar sehifesidir">
+    <h1 class="suan2">Postlar Səhifəsi</h1> 
+</div>
+
+<!-- sayi kodlari -->
+
+{% if sayi %}
+<div id="sayi">
+    <h1>Postlarin Sayi:{{ sayi }}</h1>
+</div>
+{% else %}
+<h1 id="malesef">Axtardiginiz sorgu ile elaqeli hec bir sey tapilmadi:(</h1>
+{% endif %}
+
+<div class="genel">
+    {% for birpost in tumpostlar1 %}
+<div class="genel2" title="{{birpost.baslik}}">
+    <div class="id" title="postun ID-si = {{birpost.id}}">
+        <p>id = {{ birpost.id }}</p>
+    </div>
+
+    <div class="baslik">
+        <b><a href="/detallar/{{birpost.id}}">{{birpost.baslik}}</a></b>
+    </div>
+
+    <div class="kateqoriya">
+        <span class="katspan"  title="#{{birpost.kategori}} kateqoriyasinda olan butun postlari gormek ucun klikle"><a href="kategoriya/{{birpost.kategori}}">#{{birpost.kategori}} kateqoriyasi</a></span>
+    </div>
+    <p>{{ birpost.aciklama }}</p>
+    <div class="aciklama">
+        <a href="/detallar/{{birpost.id}}" title="Ətrafli Oxu" class="etrafli2">Ətraflı Oxu--></a>
+    </div>
+
+    <!--<a href="duzenle/{{birpost.id}}" class="duzenle" title="Duzenle">Duzenle</a>
+
+    <a href="sil/{{birpost.id}}" class="sil" title="Sil">Sil</a>-->
+
+    <div class="tarih">
+        <p class="tarih2" title="Postun atilma tarixi:{{birpost.tarih}}">{{birpost.tarih}}</p>
+    </div>
+    {{ birpost.favori }}
+</div>
+    {% endfor %}
+</div>
+<button class="yukarigit"><a href="#top"><i class="fas fa-arrow-up"></i></a></button>
+<button class="asagigit"><a href="#footer"><i class="fas fa-arrow-down"></i></a></button>
+<div> <i class="fas fa-mail-bulk" id="home"></i></div>
+
+
+
+{% endblock %}
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
