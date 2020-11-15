@@ -1,2 +1,2 @@
-# Django-Blog-Layihesi
-### Django ile etdiyim blog layihesi
+# Django-Blog-Site
+### First Django Porject:Blog site.
