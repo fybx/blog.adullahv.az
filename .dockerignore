@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.swp
+*.DS_Store
+.venv/
+sanal_ortam/
+.vscode/
+.idea/
+.git/
